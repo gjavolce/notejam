@@ -14,7 +14,7 @@ EXPOSE 8080
 ARG JAR_FILE=target/spring-0.0.1-SNAPSHOT.jar
 
 # Add the application's jar to the container
-ADD ${JAR_FILE} websocket-demo.jar
+ADD ${JAR_FILE} nordcloud-notejam-demo.jar
 
 # Run the jar file
-ENTRYPOINT ["java","-Djava.security.egd=file:/dev/./urandom","-jar","/websocket-demo.jar"]
+ENTRYPOINT ["java","-Djava.security.egd=file:/dev/./urandom","-jar","/nordcloud-notejam-demo.jar"]
