@@ -45,12 +45,12 @@ public interface URITemplates {
     /**
      * The create pad path.
      */
-    String CREATE_PAD = "pads/create";
+    String CREATE_PAD = "/pads/create";
 
     /**
      * The edit pad path.
      */
-    String EDIT_PAD = "pads/{id}/edit";
+    String EDIT_PAD = "/pads/{id}/edit";
 
     /**
      * The view pad path.
