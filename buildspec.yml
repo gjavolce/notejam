@@ -10,6 +10,7 @@ phases:
     commands:
     - cd spring
     - pwd
+    - ls -al
     - apt-get update -y
     - apt-get install -y maven
     - echo building the spring module
