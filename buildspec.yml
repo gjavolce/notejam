@@ -8,15 +8,14 @@ phases:
       java: openjdk8
   build:
     commands:
+    - cd spring
     - apt-get update -y
     - apt-get install -y maven
-    - echo building the justiceleague-tracker
+    - echo building the spring module
     - mvn install
 artifacts:
   files:
-  - target/*.jar
-  - scripts/*.sh
-#  - appspec.yml
+  - spring/target/*.jar
   discard-paths: yes
 cache:
   paths:
