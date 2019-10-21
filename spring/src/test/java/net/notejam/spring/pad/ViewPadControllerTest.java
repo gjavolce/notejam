@@ -66,6 +66,11 @@ public class ViewPadControllerTest {
         setPad();
         
         uri = buildUri(URITemplates.VIEW_PAD, pad.getId());
+
+        System.out.println("---------------------------------------------------------");
+
+        System.out.println(uri);
+        System.out.println("---------------------------------------------------------");
     }
     
     /**
