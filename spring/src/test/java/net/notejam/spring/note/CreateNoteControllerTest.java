@@ -110,9 +110,8 @@ public class CreateNoteControllerTest {
         mockMvcProvider.getMockMvc().perform(post(URITemplates.CREATE_NOTE)
                 .param("text", "text")
                 .with(csrf()))
-        
             .andExpect(model().attributeHasFieldErrors("note", "name"))
-            .andExpect(view().name("note/create"));
+            .andExpect(view().name("note/create.html"));
         
         assertThat(repository.findAll(), empty());
     }
