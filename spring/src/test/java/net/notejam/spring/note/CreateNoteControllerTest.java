@@ -17,6 +17,7 @@ import org.junit.Rule;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.aspectj.EnableSpringConfigured;
 import org.springframework.security.test.context.support.WithMockUser;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.web.servlet.MvcResult;
@@ -38,6 +39,7 @@ import org.springframework.transaction.annotation.Transactional;
  * @see <a href="bitcoin:1335STSwu9hST4vcMRppEPgENMHD2r1REK">Donations</a>
  */
 @IntegrationTest
+@EnableSpringConfigured
 @RunWith(SpringJUnit4ClassRunner.class)
 public class CreateNoteControllerTest {
 
