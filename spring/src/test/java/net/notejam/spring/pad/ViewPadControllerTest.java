@@ -21,6 +21,7 @@ import net.notejam.spring.test.IntegrationTest;
 import net.notejam.spring.test.MockMvcProvider;
 import net.notejam.spring.user.SignedUpUserProvider;
 import net.notejam.spring.user.UserService;
+import org.springframework.test.web.servlet.result.MockMvcResultHandlers;
 
 /**
  * An integration test for the {@link ViewPadNotesController}.
@@ -73,6 +74,7 @@ public class ViewPadControllerTest {
     @Test
     public void padCanBeViewed() throws Exception {
         mockMvcProvider.getMockMvc().perform(get(uri))
+            .andDo(MockMvcResultHandlers.print())
             .andExpect(model().hasNoErrors())
             .andExpect(status().is2xxSuccessful())
             .andExpect(view().name("notes"));
