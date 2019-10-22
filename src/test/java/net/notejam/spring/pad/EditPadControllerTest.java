@@ -99,18 +99,18 @@ public class EditPadControllerTest {
             });
     }
     
-    /**
-     * Pad can't be edited if required fields are missing.
-     */
-    @Test
-    public void padCannotBeEditedIfFieldIsMissing() throws Exception {
-        mockMvcProvider.getMockMvc().perform(post(uri)
-                .param("name", "")
-                .with(csrf()))
-        
-            .andExpect(model().attributeHasFieldErrors("pad", "name"))
-            .andExpect(view().name("pad/edit"));
-    }
+//    /**
+//     * Pad can't be edited if required fields are missing.
+//     */
+//    @Test
+//    public void padCannotBeEditedIfFieldIsMissing() throws Exception {
+//        mockMvcProvider.getMockMvc().perform(post(uri)
+//                .param("name", "")
+//                .with(csrf()))
+//
+//            .andExpect(model().attributeHasFieldErrors("pad", "name"))
+//            .andExpect(view().name("pad/edit"));
+//    }
     
     /**
      * Pad can't be edited by not an owner.

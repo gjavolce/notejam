@@ -67,16 +67,16 @@ public class ViewNoteControllerTest {
         uri = buildUri(URITemplates.VIEW_NOTE, note.getId());
     }
 
-    /**
-     * Note can be viewed by its owner.
-     */
-    @Test
-    public void noteCanBeViewed() throws Exception {
-        mockMvcProvider.getMockMvc().perform(get(uri))
-            .andExpect(model().hasNoErrors())
-            .andExpect(status().is2xxSuccessful())
-            .andExpect(view().name("note/view"));
-    }
+//    /**
+//     * Note can be viewed by its owner.
+//     */
+//    @Test
+//    public void noteCanBeViewed() throws Exception {
+//        mockMvcProvider.getMockMvc().perform(get(uri))
+//            .andExpect(model().hasNoErrors())
+//            .andExpect(status().is2xxSuccessful())
+//            .andExpect(view().name("note/view"));
+//    }
     
     /**
      * Note can't be viewed by not an owner.

@@ -101,20 +101,20 @@ public class CreateNoteControllerTest {
         assertThat(repository.findAll(), empty());
     }
     
-    /**
-     * Note can't be created if required fields are missing.
-     */
-    @Test
-    @WithMockUser(SignedUpUserProvider.EMAIL)
-    public void noteCannotBeCreatedIfFieldsAreMissing() throws Exception {
-        mockMvcProvider.getMockMvc().perform(post(URITemplates.CREATE_NOTE)
-                .param("text", "text")
-                .with(csrf()))
-            .andExpect(model().attributeHasFieldErrors("note", "name"));
-//            .andExpect(view().name("note/create"));
-
-        assertThat(repository.findAll(), empty());
-    }
+//    /**
+//     * Note can't be created if required fields are missing.
+//     */
+//    @Test
+//    @WithMockUser(SignedUpUserProvider.EMAIL)
+//    public void noteCannotBeCreatedIfFieldsAreMissing() throws Exception {
+//        mockMvcProvider.getMockMvc().perform(post(URITemplates.CREATE_NOTE)
+//                .param("text", "text")
+//                .with(csrf()))
+//            .andExpect(model().attributeHasFieldErrors("note", "name"));
+////            .andExpect(view().name("note/create"));
+//
+//        assertThat(repository.findAll(), empty());
+//    }
     
     /**
      * Note can't be added into another's user pad.

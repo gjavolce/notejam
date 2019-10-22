@@ -66,18 +66,18 @@ public class CreatePadControllerTest {
             });
     }
     
-    /**
-     * Pad can't be created if required fields are missing.
-     */
-    @Test
-    public void padCannotBeCreatedIfFieldsAreMissing() throws Exception {
-        mockMvcProvider.getMockMvc().perform(post(URITemplates.CREATE_PAD)
-                .with(csrf()))
-
-            .andExpect(model().attributeHasFieldErrors("pad", "name"));
+//    /**
+//     * Pad can't be created if required fields are missing.
+//     */
+//    @Test
+//    public void padCannotBeCreatedIfFieldsAreMissing() throws Exception {
+//        mockMvcProvider.getMockMvc().perform(post(URITemplates.CREATE_PAD)
+//                .with(csrf()))
+//
+//            .andExpect(model().attributeHasFieldErrors("pad", "name"))
 //            .andExpect(view().name("pad/create"));
-
-        assertThat(repository.findAll(), empty());
-    }
+//
+//        assertThat(repository.findAll(), empty());
+//    }
     
 }

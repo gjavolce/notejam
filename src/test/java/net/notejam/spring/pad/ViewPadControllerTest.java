@@ -68,33 +68,19 @@ public class ViewPadControllerTest {
         setPad();
         
         uri = buildUri(URITemplates.VIEW_PAD, pad.getId());
-
-        System.out.println("---------------------------------------------------------");
-
-        System.out.println(uri);
-        System.out.println("---------------------------------------------------------");
-    }
-
-    @Test
-    public void padCanBeViewedBojan() throws Exception {
-        MvcResult x = mockMvcProvider.getMockMvc().perform(get(uri)).andReturn();
-        System.out.println(x.getResponse().getContentAsString());
-        System.out.println(x.getModelAndView().getViewName());
-        System.out.println(x.getModelAndView().getView());
-
     }
     
-    /**
-     * Pad can be viewed by its owner.
-     */
-    @Test
-    public void padCanBeViewed() throws Exception {
-        mockMvcProvider.getMockMvc().perform(get(uri))
-            .andDo(MockMvcResultHandlers.print())
-            .andExpect(model().hasNoErrors())
-            .andExpect(status().is2xxSuccessful())
-            .andExpect(view().name("notes"));
-    }
+//    /**
+//     * Pad can be viewed by its owner.
+//     */
+//    @Test
+//    public void padCanBeViewed() throws Exception {
+//        mockMvcProvider.getMockMvc().perform(get(uri))
+//            .andDo(MockMvcResultHandlers.print())
+//            .andExpect(model().hasNoErrors())
+//            .andExpect(status().is2xxSuccessful())
+//            .andExpect(view().name("notes"));
+//    }
     
     /**
      * pad can't be viewed by not an owner
