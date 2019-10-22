@@ -8,5 +8,7 @@ phases:
     - apt-get install -y maven
   build:
     commands:
-      - cd spring
-      - mvn install
+      - mvn test
+cache:
+  paths:
+    - '/root/.m2/**/*'
