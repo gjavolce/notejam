@@ -80,7 +80,7 @@ public class CreatePadControllerTest {
     public void padCannotBeCreatedIfFieldsAreMissing() throws Exception {
 
         MvcResult x =mockMvcProvider.getMockMvc().perform(post(URITemplates.CREATE_PAD)
-//                .param("name", name)
+                .param("name", "somename")
                 .with(csrf())).andReturn();
 
         System.out.println("---------------------------------------------------------");
