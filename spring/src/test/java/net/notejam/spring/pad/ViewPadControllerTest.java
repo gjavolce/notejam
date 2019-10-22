@@ -103,7 +103,7 @@ public class ViewPadControllerTest {
     public void padCannotBeViewedByOtherUser() throws Exception {
         final String otherUser = "another@example.net";
         userService.signUp(otherUser, "password");
-        
+
         mockMvcProvider.getMockMvc().perform(get(uri)
                 .with(user(otherUser)))
             .andExpect(status().is(403));
