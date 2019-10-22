@@ -52,25 +52,18 @@ public class CreatePadControllerTest {
     public void padCanBeCreated() throws Exception {
         final String name = "name";
         
-        MvcResult x =mockMvcProvider.getMockMvc().perform(post(URITemplates.CREATE_PAD)
+        mockMvcProvider.getMockMvc().perform(post(URITemplates.CREATE_PAD)
                 .param("name", name)
-                .with(csrf())).andReturn();
+                .with(csrf()))
         
-//            .andExpect(model().hasNoErrors())
-//            .andExpect((MvcResult result) -> {
-//                int id  = Integer.parseInt(getPathVariable("id", URITemplates.VIEW_PAD, result.getResponse().getRedirectedUrl()));
-//                Pad pad = repository.findOne(id);
-//
-//                assertEquals(name, pad.getName());
-//                assertEquals(SignedUpUserProvider.EMAIL, pad.getUser().getEmail());
-//            });
+            .andExpect(model().hasNoErrors())
+            .andExpect((MvcResult result) -> {
+                int id  = Integer.parseInt(getPathVariable("id", URITemplates.VIEW_PAD, result.getResponse().getRedirectedUrl()));
+                Pad pad = repository.findOne(id);
 
-        System.out.println("---------------------------------------------------------");
-
-        System.out.println(x.getModelAndView().getViewName());
-        System.out.println("---------------------------------------------------------");
-
-
+                assertEquals(name, pad.getName());
+                assertEquals(SignedUpUserProvider.EMAIL, pad.getUser().getEmail());
+            });
     }
     
     /**
@@ -78,23 +71,13 @@ public class CreatePadControllerTest {
      */
     @Test
     public void padCannotBeCreatedIfFieldsAreMissing() throws Exception {
+        mockMvcProvider.getMockMvc().perform(post(URITemplates.CREATE_PAD)
+                .with(csrf()))
 
-        MvcResult x =mockMvcProvider.getMockMvc().perform(post(URITemplates.CREATE_PAD)
-                .param("name", "somename")
-                .with(csrf())).andReturn();
-
-        System.out.println("---------------------------------------------------------");
-
-        System.out.println(x.getModelAndView().getViewName());
-        System.out.println("---------------------------------------------------------");
-
-//        mockMvcProvider.getMockMvc().perform(post(URITemplates.CREATE_PAD)
-//                .with(csrf()))
-//
-//            .andExpect(model().attributeHasFieldErrors("pad", "name"))
+            .andExpect(model().attributeHasFieldErrors("pad", "name"));
 //            .andExpect(view().name("pad/create"));
-//
-//        assertThat(repository.findAll(), empty());
+
+        assertThat(repository.findAll(), empty());
     }
     
 }
