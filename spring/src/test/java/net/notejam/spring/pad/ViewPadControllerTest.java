@@ -21,6 +21,8 @@ import net.notejam.spring.test.IntegrationTest;
 import net.notejam.spring.test.MockMvcProvider;
 import net.notejam.spring.user.SignedUpUserProvider;
 import net.notejam.spring.user.UserService;
+import org.springframework.test.web.servlet.MvcResult;
+import org.springframework.test.web.servlet.ResultActions;
 import org.springframework.test.web.servlet.result.MockMvcResultHandlers;
 
 /**
@@ -71,6 +73,15 @@ public class ViewPadControllerTest {
 
         System.out.println(uri);
         System.out.println("---------------------------------------------------------");
+    }
+
+    @Test
+    public void padCanBeViewedBojan() throws Exception {
+        MvcResult x = mockMvcProvider.getMockMvc().perform(get(uri)).andReturn();
+        System.out.println(x.getResponse().getContentAsString());
+        System.out.println(x.getModelAndView().getViewName());
+        System.out.println(x.getModelAndView().getView());
+
     }
     
     /**
